@@ -1,1 +1,2 @@
 # ProjetC
+modif readme
