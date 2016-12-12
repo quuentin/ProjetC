@@ -3,36 +3,38 @@
 #include <time.h>
 #include <unistd.h>
 #include <dirent.h>
+#include "ExiaSaver.h"
 
-void exiaSaver(int argc, char* argv[]){
+void lancerCommandes(){
 
-    int pidCommandes, pidTypes;
-    int* lancerProgramme;
-    lancerProgramme = NULL;
+    int pidCommandes;
 
-    system("CLEAR");
     pidCommandes = creerProccessusFils();
-    pidTypes = creerProccessusFils();
-    verifStat(argv[1], pidTypes);
-    Aleatoire(lancerProgramme);
-    choixProgramme(&lancerProgramme, pidTypes);
-}
-
-void verifstat(char* argv[], int pidTypes){
-
-    if(argv[1] == -stat){
-        pidTypes = execl("C:/ProjetC/stat.c", 0);
+    if(pidCommandes == 0){
+        execl("commandes.c", 0);
     }
 }
 
-int* Aleatoire(int* lancerProgramme){
+int* verifstat(char* argv[], int* pointeurpidTypes){
+
+    int pidTypes;
+    *pointeurpidTypes = &pidTypes;
+
+    pidTypes = creerProccessusFils();
+    if(argv[1] == "-stat"){
+        pidTypes = execl("stat.c", 0);
+    }
+    return pointeurpidTypes;
+}
+
+int* aleatoire(int* p){
 
     int nombreAleatoire;
-    lancerProgramme->nombreAleatoire;
+    *p = &nombreAleatoire;
 
     srand(time(NULL));
     nombreAleatoire = rand()%3;
-    return lancerProgramme;
+    return p;
 }
 
 int creerProccessusFils(){
@@ -45,45 +47,40 @@ int creerProccessusFils(){
     return pid;
 }
 
-void lancerCommandes(int pidCommandes){
+void choixProgramme(int* p, int* pointeurpidTypes){
 
-    if(pidCommandes == 0){
-        execl("C:/ProjetC/commandes.c", 0);
-    }
-}
+    int resultatAleatoire;
+    resultatAleatoire = p;
 
-void choixProgramme(int* lancerProgramme, int pidTypes){
-
-
-    char *getenv(EXIASAVER_HOME);
-    DIR *opendir(EXIASAVER_HOME);
-    if(pidTypes == 0){
-        switch(&lancerProgramme){
-            case '0' :
+    if(pointeurpidTypes == 0){
+        switch(resultatAleatoire){
+            case 0 :
             lancerStatique();
             break;
 
-            case '1' :
+            case 1 :
             lancerDynamique();
             break;
 
-            case 'default' :
+            case 2 :
             lancerInteractif();
             break;
+        }
+    } else {
+        wait(pointeurpidTypes);
+        system("CLEAR");
+
     }
 }
 
 void lancerStatique(){
 
-    execl("TypeStatique.c", 0);
-    closedir(EXIASAVER_HOME);
+
 }
 
 
 
     execl("TypeDynamique.c", 0);
-    closedir(EXIASAVER_HOME);
 
 
     execl("TypeInteractif.c", 0);
-    closedir(EXIASAVER_HOME);
