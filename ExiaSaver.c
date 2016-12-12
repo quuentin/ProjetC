@@ -1,41 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
 #include <unistd.h>
 #include <dirent.h>
-#include "ExiaSaver.h"
-
-void lancerCommandes(){
-
-    int pidCommandes;
-
-    pidCommandes = creerProccessusFils();
-    if(pidCommandes == 0){
-        execl("commandes.c", 0);
-    }
-}
-
-int* verifstat(char* argv[], int* pointeurpidTypes){
-
-    int pidTypes;
-    *pointeurpidTypes = &pidTypes;
-
-    pidTypes = creerProccessusFils();
-    if(argv[1] == "-stat"){
-        pidTypes = execl("stat.c", 0);
-    }
-    return pointeurpidTypes;
-}
-
-int* aleatoire(int* p){
-
-    int nombreAleatoire;
-    *p = &nombreAleatoire;
-
-    srand(time(NULL));
-    nombreAleatoire = rand()%3;
-    return p;
-}
+#include <sys/types.h>
 
 int creerProccessusFils(){
 
@@ -47,13 +16,68 @@ int creerProccessusFils(){
     return pid;
 }
 
-void choixProgramme(int* p, int* pointeurpidTypes){
+void lancerCommandes(){
 
-    int resultatAleatoire;
-    resultatAleatoire = p;
+    int pidCommandes;
 
-    if(pointeurpidTypes == 0){
-        switch(resultatAleatoire){
+    pidCommandes = creerProccessusFils();
+    if(pidCommandes == 0){
+        printf("commandes est en marche");
+    }
+}
+
+void lancerStats(){
+
+    int pidStats;
+
+    pidStats = creerProccessusFils();
+    if(pidStats == 0){
+        printf("Stat est en marche");
+    }
+}
+
+void verifstat(char* arg){
+    char stat[6]="-stats";
+
+    if(strcmp(arg, stat) == 0){
+        lancerStats();
+    }else{
+        printf("Erreur, veuillez lancer le programme sans paramètres ou avec -stats en paramètre");
+    }
+}
+
+void aleatoire(int *pointeurNombreAleatoire){
+
+    srand(time(NULL));
+    *pointeurNombreAleatoire = rand()%3;
+}
+
+void lancerStatique(){
+
+    printf("Je Suis Statique");
+}
+
+void lancerDynamique(){
+
+    printf("Je Suis Dynamique");
+}
+
+void lancerInteractif(){
+
+    printf("Je Suis Interactif");
+}
+
+void choixProgramme(int* p){
+
+    int pidTypes;
+    int nombreAleatoire;
+
+    aleatoire(&nombreAleatoire);
+    printf("Résultat aléatoire : %d", nombreAleatoire);
+    pidTypes = creerProccessusFils();
+
+    if(pidTypes == 0){
+        switch(nombreAleatoire){
             case 0 :
             lancerStatique();
             break;
@@ -66,21 +90,5 @@ void choixProgramme(int* p, int* pointeurpidTypes){
             lancerInteractif();
             break;
         }
-    } else {
-        wait(pointeurpidTypes);
-        system("CLEAR");
-
     }
 }
-
-void lancerStatique(){
-
-
-}
-
-
-
-    execl("TypeDynamique.c", 0);
-
-
-    execl("TypeInteractif.c", 0);

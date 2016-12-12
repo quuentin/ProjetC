@@ -1,17 +1,17 @@
 #include <stdio.h>
+#include "ExiaSaver.h"
 
 int main(int argc, char *argv[]){
 
-    int* p, pointeurpidTypes;
+    char* arg = argv[1];
 
-    system("CLEAR");
+    if(argc == 1){
+        lancerCommandes();
 
-    lancerCommandes();
+        choixProgramme();
+    }else{
 
-    verifstat(argv[2], pointeurpidTypes);
-
-    aleatoire(p);
-
-    choixProgramme(p, pointeurpidTypes);
-
+        verifstat(arg);
+    }
+    return 0;
 }

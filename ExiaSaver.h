@@ -1,8 +1,9 @@
 void lancerCommandes();
-int* verifstat(argv[2], pointeurpidTypes);
-int* aleatoire(p);
+void verifstat(char*);
+void aleatoire(int*);
 int creerProccessusFils();
-void choixProgramme(p, pointeurpidTypes);
+void choixProgramme();
+void lancerStats();
 void lancerStatique();
 void lancerDynamique();
 void lancerInteractif();
