@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1481573133 source:/home/quentin/Bureau/dynamique/main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<unistd.h>
+	"conio.h"
+	"pbm.h"
+
+1481542557 /home/quentin/Bureau/dynamique/conio.h
+	<termios.h>
+	<unistd.h>
+	<stdio.h>
+
+1481544756 /home/quentin/Bureau/dynamique/pbm.h
+
