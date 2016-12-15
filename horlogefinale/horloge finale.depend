@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1481797914 source:/home/coco/Bureau/final dynamique/horloge finale/main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1481803425 source:/home/kevin/Bureau/final dynamique/horloge finale/main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1481807567 source:/home/quentin/Bureau/horloge finale/main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"conio.h"
+	<unistd.h>
+
+1481542557 /home/quentin/Bureau/horloge finale/conio.h
+	<termios.h>
+	<unistd.h>
+	<stdio.h>
+
