@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1481707764 source:/home/quentin/Bureau/statique/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"conio.h"
+	"pbm.h"
+
+1481542557 /home/quentin/Bureau/statique/conio.h
+	<termios.h>
+	<unistd.h>
+	<stdio.h>
+
+1481544756 /home/quentin/Bureau/statique/pbm.h
+
