@@ -1,9 +1,0 @@
-void lancerCommandes();
-void verifstat(char*);
-void aleatoire(int*);
-int creerProccessusFils();
-void choixProgramme();
-void lancerStats();
-void lancerStatique();
-void lancerDynamique();
-void lancerInteractif();
