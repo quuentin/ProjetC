@@ -1,7 +1,0 @@
-# depslib dependency file v1.0
-1481497521 source:/home/coco/Desktop/projet git/ProjetC/main.c
-	<stdio.h>
-	<stdlib.h>
-	<time.h>
-	<unistd.h>
-
