@@ -1,0 +1,35 @@
+# depslib dependency file v1.0
+1481745019 source:/home/quentin/Bureau/test/main.c
+	<stdlib.h>
+	<stdio.h>
+	<time.h>
+	<string.h>
+	<unistd.h>
+	<sys/types.h>
+	<termios.h>
+	<time.h>
+	"conio.h"
+
+1481542557 /home/quentin/Bureau/test/conio.h
+	<termios.h>
+	<unistd.h>
+	<stdio.h>
+
+1481793586 source:/home/quentin/Bureau/tout test/test/main.c
+	<stdlib.h>
+	<stdio.h>
+	<time.h>
+	<string.h>
+	<unistd.h>
+	<sys/types.h>
+	<termios.h>
+	<time.h>
+	<dirent.h>
+	<sys/wait.h>
+	"conio.h"
+
+1481542557 /home/quentin/Bureau/tout test/test/conio.h
+	<termios.h>
+	<unistd.h>
+	<stdio.h>
+
